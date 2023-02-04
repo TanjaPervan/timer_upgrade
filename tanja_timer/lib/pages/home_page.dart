@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar.center(),
+      appBar: const CustomAppBar.leading(),
       body: Center(
         child: Text(
           'timer'.tr(),

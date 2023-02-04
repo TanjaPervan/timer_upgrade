@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
-import 'package:tanja_timer/widgets/app_bar/title_app_bar.dart';
+import 'package:tanja_timer/widgets/app_bar/leading_app_bar.dart';
 
 enum _AppBarStyle { center, leading }
 
@@ -37,11 +37,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: CustomColors.of(context).backgroundGradientStart,
+              color: CustomColors.of(context).shadowAppBarFirst,
               blurRadius: 40.0,
               spreadRadius: 0.0,
               offset: const Offset(20.0, 10.0),
-            )
+            ),
+            BoxShadow(
+              color: CustomColors.of(context).shadowAppBarSecond,
+              blurRadius: 42.0,
+              spreadRadius: 0.0,
+              offset: const Offset(-10.0, -10.0),
+            ),
           ],
           borderRadius: const BorderRadius.only(bottomRight: Radius.circular(20)),
           gradient: LinearGradient(
