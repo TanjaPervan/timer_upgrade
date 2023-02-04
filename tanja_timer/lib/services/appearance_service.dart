@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
 
@@ -16,6 +17,13 @@ class AppearanceService extends ChangeNotifier {
         const colorScheme = CustomColorScheme.light();
         final textStyleScheme = CustomTextStyleScheme.fromPrimaryTextColor(colorScheme.primary!);
         theme = ThemeData(
+          appBarTheme: const AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarBrightness: Brightness.light,
+              statusBarIconBrightness: Brightness.light,
+            ),
+            //backgroundColor: Colors.transparent,
+          ),
           brightness: Brightness.light,
           extensions: <ThemeExtension<dynamic>>[colorScheme, textStyleScheme],
         );

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
+import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   static const pageName = 'home';
@@ -9,9 +10,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar.center(),
       body: Center(
         child: Text(
-          'title'.tr(),
+          'timer'.tr(),
           style: CustomTextStyles.of(context).bold48,
         ),
       ),
