@@ -4,17 +4,68 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 
-class ShadowGradientWidget extends StatelessWidget {
-  const ShadowGradientWidget({super.key});
+enum _Type { inputField, buttonRound, bigRound }
+
+class ShadowsGradients extends StatelessWidget {
+  final _Type _type;
+  final Widget child;
+
+  const ShadowsGradients.inputField({
+    super.key,
+    required this.child,
+  }) : _type = _Type.inputField;
+
+  const ShadowsGradients.bigRound({
+    super.key,
+    required this.child,
+  }) : _type = _Type.bigRound;
+
+  const ShadowsGradients.buttonRound({
+    super.key,
+    required this.child,
+  }) : _type = _Type.buttonRound;
+
+  double get radius {
+    switch (_type) {
+      case _Type.inputField:
+        return 10;
+      case _Type.buttonRound:
+        return 40;
+      case _Type.bigRound:
+        return 500;
+    }
+  }
+
+  double height(BuildContext context) {
+    switch (_type) {
+      case _Type.inputField:
+        return 52;
+      case _Type.buttonRound:
+        return 90;
+      case _Type.bigRound:
+        return MediaQuery.of(context).size.width - 8;
+    }
+  }
+
+  double width(BuildContext context) {
+    switch (_type) {
+      case _Type.inputField:
+        return MediaQuery.of(context).size.width - 93;
+      case _Type.buttonRound:
+        return 90;
+      case _Type.bigRound:
+        return MediaQuery.of(context).size.width - 8;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.width - 8,
-      width: MediaQuery.of(context).size.width - 8,
+      height: height(context),
+      width: width(context),
       decoration: BoxDecoration(
         backgroundBlendMode: BlendMode.softLight,
-        borderRadius: BorderRadius.circular(500),
+        borderRadius: BorderRadius.circular(radius),
         gradient: LinearGradient(
           transform: const GradientRotation(147 * pi / 180),
           colors: [
@@ -40,7 +91,7 @@ class ShadowGradientWidget extends StatelessWidget {
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(500),
+          borderRadius: BorderRadius.circular(radius),
           gradient: LinearGradient(
             transform: const GradientRotation(128 * pi / 180),
             colors: [
@@ -64,7 +115,7 @@ class ShadowGradientWidget extends StatelessWidget {
             ),
           ],
         ),
-        //child: TextFormField(),
+        child: child,
       ),
     );
   }

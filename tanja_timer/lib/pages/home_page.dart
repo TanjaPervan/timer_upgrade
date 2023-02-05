@@ -29,7 +29,10 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: const [
             SizedBox(height: 100),
-            Center(child: ShadowGradientWidget()),
+            Center(
+                child: ShadowsGradients.bigRound(
+              child: TextField(),
+            )),
           ],
         ),
       ),
