@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:tanja_timer/extensions/custom_text_style.dart';
 
-class LeadingAppBar extends StatelessWidget {
-  const LeadingAppBar({super.key});
+class LeadingTitle extends StatelessWidget {
+  final VoidCallback? onTapBack;
+  const LeadingTitle({super.key, required this.onTapBack});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class LeadingAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         CupertinoButton(
-          onPressed: () {},
+          onPressed: onTapBack,
           child: Image.asset('assets/icons/icon_arrow_back.png'),
         ),
         const SizedBox(width: 2),
