@@ -62,11 +62,11 @@ class TimerCircle extends StatelessWidget {
                   width: 0,
                 ),
                 gradient: LinearGradient(
-                  end: Alignment.center,
-                  begin: Alignment.center,
+                  end: Alignment.bottomCenter,
+                  begin: Alignment.centerLeft,
                   colors: [
-                    CustomColors.of(context).gradientBegin,
-                    CustomColors.of(context).gradientEnd,
+                    CustomColors.of(context).gradientBegin.withOpacity(0),
+                    CustomColors.of(context).gradientEnd.withOpacity(0.6),
                   ],
                 ),
                 boxShadow: shadows(),
@@ -113,20 +113,20 @@ class TimerCircle extends StatelessWidget {
       BoxShadow(
         color: Color(0xffEBECF0),
         blurRadius: 7.0,
-        blurStyle: BlurStyle.normal,
+        blurStyle: BlurStyle.inner,
         offset: Offset(1.0, 1.0),
       ),
       BoxShadow(
         color: Color(0xffBDC1D1),
-        blurRadius: 8.0,
+        blurRadius: 10.0,
         blurStyle: BlurStyle.inner,
-        offset: Offset(3, 3),
+        offset: Offset(-3, -3),
       ),
       BoxShadow(
         color: Color(0xffFAFBFC),
-        blurRadius: 10.0,
-        blurStyle: BlurStyle.inner,
-        offset: Offset(-5, -4),
+        blurRadius: 8.0,
+        blurStyle: BlurStyle.normal,
+        offset: Offset(5, 4),
       ),
     ];
   }
