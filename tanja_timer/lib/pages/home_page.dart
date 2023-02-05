@@ -2,7 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
-import 'package:tanja_timer/widgets/shadow_gradient_widget.dart';
+import 'package:tanja_timer/widgets/shadows_gradients.dart';
+import 'package:tanja_timer/widgets/timer_circle.dart';
 
 class HomePage extends StatelessWidget {
   static const pageName = 'home';
@@ -30,9 +31,8 @@ class HomePage extends StatelessWidget {
           children: const [
             SizedBox(height: 100),
             Center(
-                child: ShadowsGradients.bigRound(
-              child: TextField(),
-            )),
+              child: TimerCircle(),
+            ),
           ],
         ),
       ),

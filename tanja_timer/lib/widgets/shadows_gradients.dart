@@ -43,7 +43,7 @@ class ShadowsGradients extends StatelessWidget {
       case _Type.buttonRound:
         return 90;
       case _Type.bigRound:
-        return MediaQuery.of(context).size.width - 8;
+        return 398;
     }
   }
 
@@ -54,7 +54,7 @@ class ShadowsGradients extends StatelessWidget {
       case _Type.buttonRound:
         return 90;
       case _Type.bigRound:
-        return MediaQuery.of(context).size.width - 8;
+        return 398;
     }
   }
 
