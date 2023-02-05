@@ -4,13 +4,14 @@ import 'package:tanja_timer/widgets/shadows_gradients.dart';
 enum _ButtonType { play, pause, powerOff }
 
 class CustomButton extends StatelessWidget {
+  final VoidCallback onPressed;
   final _ButtonType _type;
 
-  const CustomButton.play({super.key}) : _type = _ButtonType.play;
+  const CustomButton.play({super.key, required this.onPressed}) : _type = _ButtonType.play;
 
-  const CustomButton.pause({super.key}) : _type = _ButtonType.pause;
+  const CustomButton.pause({super.key, required this.onPressed}) : _type = _ButtonType.pause;
 
-  const CustomButton.powerOff({super.key}) : _type = _ButtonType.powerOff;
+  const CustomButton.powerOff({super.key, required this.onPressed}) : _type = _ButtonType.powerOff;
 
   String get iconPath {
     switch (_type) {
@@ -27,7 +28,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadowsGradients.buttonRound(
       child: CupertinoButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Image.asset(iconPath),
       ),
     );
