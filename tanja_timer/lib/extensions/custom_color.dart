@@ -9,7 +9,7 @@ class CustomColors {
   Color get gradientEnd => Theme.of(_context).extension<CustomColorScheme>()!.gradientEnd!;
   Color get shadowAppBarFirst => Theme.of(_context).extension<CustomColorScheme>()!.shadowAppBarFirst!;
   Color get shadowAppBarSecond => Theme.of(_context).extension<CustomColorScheme>()!.shadowAppBarSecond!;
-  Color get timerBackground => Theme.of(_context).extension<CustomColorScheme>()!.timerBackground!;
+  Color get secondary => Theme.of(_context).extension<CustomColorScheme>()!.secondary!;
 }
 
 @immutable
@@ -19,13 +19,13 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   final Color? gradientEnd;
   final Color? shadowAppBarFirst;
   final Color? shadowAppBarSecond;
-  final Color? timerBackground;
+  final Color? secondary;
 
   const CustomColorScheme({
     required this.primary,
     required this.gradientBegin,
     required this.gradientEnd,
-    required this.timerBackground,
+    required this.secondary,
     required this.shadowAppBarFirst,
     required this.shadowAppBarSecond,
   });
@@ -34,7 +34,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     this.primary = const Color(0xff333333),
     this.gradientEnd = const Color(0xffF7F8FA),
     this.gradientBegin = const Color(0xffE6E7ED),
-    this.timerBackground = const Color(0xffff9900),
+    this.secondary = const Color(0xffff9900),
     this.shadowAppBarFirst = const Color(0xffBDC1D1),
     this.shadowAppBarSecond = const Color(0xffFAFCFC),
   });
@@ -46,7 +46,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     Color? gradientEnd,
     Color? shadowAppBarFirst,
     Color? shadowAppBarSecond,
-    Color? timerBackground,
+    Color? secondary,
   }) {
     return CustomColorScheme(
       primary: primary ?? this.primary,
@@ -54,7 +54,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       gradientEnd: gradientEnd ?? this.gradientEnd,
       shadowAppBarFirst: shadowAppBarFirst ?? this.shadowAppBarFirst,
       shadowAppBarSecond: shadowAppBarSecond ?? this.shadowAppBarSecond,
-      timerBackground: timerBackground ?? this.timerBackground,
+      secondary: secondary ?? this.secondary,
     );
   }
 
@@ -69,7 +69,7 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
       shadowAppBarFirst: Color.lerp(shadowAppBarFirst, other.shadowAppBarFirst, t),
       shadowAppBarSecond: Color.lerp(shadowAppBarSecond, other.shadowAppBarSecond, t),
       gradientEnd: Color.lerp(gradientEnd, other.gradientEnd, t),
-      timerBackground: Color.lerp(timerBackground, other.timerBackground, t),
+      secondary: Color.lerp(secondary, other.secondary, t),
     );
   }
 }
