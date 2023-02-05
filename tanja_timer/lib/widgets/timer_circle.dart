@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/widgets/shadows_gradients.dart';
 
 class TimerCircle extends StatelessWidget {
@@ -9,8 +10,8 @@ class TimerCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // width: MediaQuery.of(context).size.width - 8,
-      // height: MediaQuery.of(context).size.width - 8,
+      width: MediaQuery.of(context).size.width - 16,
+      height: MediaQuery.of(context).size.width - 16,
       child: Stack(
         children: [
           Positioned(child: ShadowsGradients.bigRound(child: Center(child: Text('data')))),
@@ -18,32 +19,37 @@ class TimerCircle extends StatelessWidget {
             bottom: 31,
             top: 31,
             left: 31,
-            child: Container(
-              height: 334,
-              width: 334,
+            right: 31,
+            child: DecoratedBox(
               decoration: BoxDecoration(
                 color: const Color(0xffEBECF0),
                 borderRadius: BorderRadius.circular(175),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color(0xffEBECF0),
-                    blurRadius: 7.0,
-                    blurStyle: BlurStyle.solid,
-                    offset: Offset(1.0, 1.0),
-                  ),
-                  BoxShadow(
-                    color: Color(0xffBDC1D1),
-                    blurRadius: 8.0,
-                    blurStyle: BlurStyle.inner,
-                    offset: Offset(3, 3),
-                  ),
-                  BoxShadow(
-                    color: Color(0xffFAFBFC),
-                    blurRadius: 10.0,
-                    blurStyle: BlurStyle.inner,
-                    offset: Offset(-5.0, -4.0),
-                  ),
-                ],
+                boxShadow: shadows(),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 31,
+            top: 31,
+            left: 31,
+            right: 31,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(175),
+                border: Border.all(
+                  style: BorderStyle.solid,
+                  color: CustomColors.of(context).gradientEnd.withOpacity(1),
+                  width: 1,
+                ),
+                gradient: LinearGradient(
+                  begin: Alignment.center,
+                  end: Alignment.center,
+                  colors: [
+                    CustomColors.of(context).gradientBegin.withOpacity(1),
+                    CustomColors.of(context).gradientEnd.withOpacity(1),
+                  ],
+                ),
+                boxShadow: shadows(),
               ),
             ),
           ),
@@ -51,9 +57,8 @@ class TimerCircle extends StatelessWidget {
             bottom: 42,
             top: 42,
             left: 42,
-            child: Container(
-              height: 309,
-              width: 309,
+            right: 42,
+            child: DecoratedBox(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(175),
                 gradient: LinearGradient(
@@ -70,31 +75,29 @@ class TimerCircle extends StatelessWidget {
         ],
       ),
     );
-    // Container(
-    //   width: 398,
-    //   height: 398,
-    //   //padding: EdgeInsets.all(20),
-    //   //okolo
-    //   decoration: BoxDecoration(
-    //     borderRadius: BorderRadius.circular(200 - 30),
-    //     border: Border.all(color: Colors.blue, width: 30),
-    //   ),
-    //   child: ClipRRect(
-    //     borderRadius: BorderRadius.circular(270 - 50),
-    //     child: DecoratedBox(
-    //       decoration: BoxDecoration(
-    //         borderRadius: BorderRadius.circular(220 - 50),
-    //         border: Border.all(color: Colors.orange, width: 50),
-    //         color: CustomColors.of(context).timerBackground,
-    //       ),
-    //       child: DecoratedBox(
-    //         decoration: BoxDecoration(
-    //           borderRadius: BorderRadius.circular(170),
-    //           color: CustomColors.of(context).primary,
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
+  }
+
+  List<BoxShadow> shadows() {
+    return const [
+      BoxShadow(
+        color: Color(0xffFAFBFC),
+        blurRadius: 10.0,
+        blurStyle: BlurStyle.inner,
+        offset: Offset(-5.0, -4.0),
+      ),
+      BoxShadow(
+        color: Color(0xffBDC1D1),
+        blurRadius: 8.0,
+        //spreadRadius: -3,
+        blurStyle: BlurStyle.inner,
+        offset: Offset(3, 3),
+      ),
+      BoxShadow(
+        color: Color(0xffEBECF0),
+        blurRadius: 7.0,
+        blurStyle: BlurStyle.normal,
+        offset: Offset(-1.0, -1.0),
+      ),
+    ];
   }
 }
