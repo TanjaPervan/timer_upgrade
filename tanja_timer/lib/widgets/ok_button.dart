@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
 
 class OkButton extends StatelessWidget {
@@ -11,7 +12,7 @@ class OkButton extends StatelessWidget {
       height: 64,
       width: MediaQuery.of(context).size.width - 93,
       decoration: BoxDecoration(
-        color: Colors.orange,
+        color: CustomColors.of(context).secondary,
         borderRadius: BorderRadius.circular(40),
         boxShadow: const [
           BoxShadow(color: Color(0xffBDC1D1), blurRadius: 19.0, offset: Offset(4.0, 3.0)),
