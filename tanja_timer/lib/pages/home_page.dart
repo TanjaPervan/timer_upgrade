@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
-import 'package:tanja_timer/widgets/custom_button.dart';
+import 'package:tanja_timer/widgets/shadows_gradients.dart';
 
 class HomePage extends StatelessWidget {
   static const pageName = 'home';
@@ -28,12 +28,11 @@ class HomePage extends StatelessWidget {
         ),
         child: Column(
           children: const [
-            SizedBox(height: 30),
-            Center(child: CustomButton.play()),
-            SizedBox(height: 30),
-            Center(child: CustomButton.pause()),
-            SizedBox(height: 30),
-            Center(child: CustomButton.powerOff()),
+            SizedBox(height: 600),
+            Center(
+                child: ShadowsGradients.buttonRound(
+              child: Text(''),
+            )),
           ],
         ),
       ),
