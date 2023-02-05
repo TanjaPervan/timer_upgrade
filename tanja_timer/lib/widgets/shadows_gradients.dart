@@ -50,7 +50,9 @@ class ShadowsGradients extends StatelessWidget {
   double width(BuildContext context) {
     switch (_type) {
       case _Type.inputField:
-        return MediaQuery.of(context).size.width - 93;
+        return 228;
+
+      //MediaQuery.of(context).size.width - 93 * 2;
       case _Type.buttonRound:
         return 90;
       case _Type.bigRound:

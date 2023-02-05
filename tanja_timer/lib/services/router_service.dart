@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tanja_timer/pages/home_page.dart';
+import 'package:tanja_timer/pages/timer_page.dart';
 
 class RouterService {
   late final GoRouter _goRouter;
@@ -18,6 +19,13 @@ class RouterService {
           name: HomePage.pageName,
           pageBuilder: (context, state) => _buildMaterialPage(
             child: const HomePage(),
+          ),
+        ),
+        GoRoute(
+          path: '/timer',
+          name: TimerPage.pageName,
+          pageBuilder: (context, state) => _buildMaterialPage(
+            child: const TimerPage(),
           ),
         ),
       ],

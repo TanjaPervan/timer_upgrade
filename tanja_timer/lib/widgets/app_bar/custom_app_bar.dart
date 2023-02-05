@@ -9,13 +9,16 @@ import 'package:tanja_timer/widgets/app_bar/leading_app_bar.dart';
 enum _AppBarStyle { center, leading }
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final VoidCallback? onTapBack;
   final _AppBarStyle _type;
 
   const CustomAppBar.center({
     super.key,
-  }) : _type = _AppBarStyle.center;
+  })  : _type = _AppBarStyle.center,
+        onTapBack = null;
 
   const CustomAppBar.leading({
+    this.onTapBack,
     super.key,
   }) : _type = _AppBarStyle.leading;
 
@@ -25,7 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         return Text('timer'.tr(), style: CustomTextStyles.of(context).bold24);
 
       case _AppBarStyle.leading:
-        return const LeadingAppBar();
+        return LeadingTitle(onTapBack: onTapBack);
     }
   }
 
