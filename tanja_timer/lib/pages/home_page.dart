@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         child: Column(
-          children: [
+          children: const [
             SizedBox(height: 30),
             Center(child: CustomButton.play()),
             SizedBox(height: 30),
