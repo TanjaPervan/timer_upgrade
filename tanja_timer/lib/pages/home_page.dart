@@ -2,7 +2,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
+import 'package:tanja_timer/widgets/custom_button.dart';
+import 'package:tanja_timer/widgets/ok_button.dart';
 import 'package:tanja_timer/widgets/shadows_gradients.dart';
+import 'package:tanja_timer/widgets/timer_circle.dart';
 
 class HomePage extends StatelessWidget {
   static const pageName = 'home';
@@ -11,7 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar.leading(),
+      appBar: const CustomAppBar.center(),
       body: DecoratedBox(
         position: DecorationPosition.background,
         decoration: BoxDecoration(
@@ -26,13 +29,20 @@ class HomePage extends StatelessWidget {
             stops: const [0.2585, 0.8581],
           ),
         ),
-        child: Column(
+        child: ListView(
           children: const [
-            SizedBox(height: 600),
-            Center(
-                child: ShadowsGradients.buttonRound(
-              child: Text(''),
-            )),
+            SizedBox(height: 40),
+            Center(child: OkButton()),
+            SizedBox(height: 20),
+            Center(child: CustomButton.pause()),
+            SizedBox(height: 20),
+            Center(child: CustomButton.play()),
+            SizedBox(height: 20),
+            Center(child: CustomButton.powerOff()),
+            SizedBox(height: 20),
+            Center(child: ShadowsGradients.inputField(child: Text(''))),
+            SizedBox(height: 20),
+            Center(child: TimerCircle()),
           ],
         ),
       ),
