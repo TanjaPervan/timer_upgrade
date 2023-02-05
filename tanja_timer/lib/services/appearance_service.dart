@@ -18,6 +18,7 @@ class AppearanceService extends ChangeNotifier {
         final textStyleScheme = CustomTextStyleScheme.fromPrimaryTextColor(colorScheme.primary!);
         theme = ThemeData(
           appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.transparent,
             systemOverlayStyle: SystemUiOverlayStyle(
               statusBarBrightness: Brightness.light,
               statusBarIconBrightness: Brightness.light,

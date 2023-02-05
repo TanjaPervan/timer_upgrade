@@ -5,49 +5,55 @@ class CustomColors {
   const CustomColors.of(BuildContext context) : _context = context;
 
   Color get primary => Theme.of(_context).extension<CustomColorScheme>()!.primary!;
-  Color get appBarGradientBegin => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientBegin!;
-  Color get appBarGradientEnd => Theme.of(_context).extension<CustomColorScheme>()!.appBarGradientEnd!;
-  Color get backgroundGradientStart => Theme.of(_context).extension<CustomColorScheme>()!.backgroundGradientStart!;
+  Color get gradientBegin => Theme.of(_context).extension<CustomColorScheme>()!.gradientBegin!;
+  Color get gradientEnd => Theme.of(_context).extension<CustomColorScheme>()!.gradientEnd!;
+  Color get shadowAppBarFirst => Theme.of(_context).extension<CustomColorScheme>()!.shadowAppBarFirst!;
+  Color get shadowAppBarSecond => Theme.of(_context).extension<CustomColorScheme>()!.shadowAppBarSecond!;
   Color get timerBackground => Theme.of(_context).extension<CustomColorScheme>()!.timerBackground!;
 }
 
 @immutable
 class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
   final Color? primary;
-  final Color? appBarGradientBegin;
-  final Color? appBarGradientEnd;
-  final Color? backgroundGradientStart;
+  final Color? gradientBegin;
+  final Color? gradientEnd;
+  final Color? shadowAppBarFirst;
+  final Color? shadowAppBarSecond;
   final Color? timerBackground;
 
   const CustomColorScheme({
     required this.primary,
-    this.appBarGradientBegin,
-    this.appBarGradientEnd,
+    required this.gradientBegin,
+    required this.gradientEnd,
     required this.timerBackground,
-    required this.backgroundGradientStart,
+    required this.shadowAppBarFirst,
+    required this.shadowAppBarSecond,
   });
 
   const CustomColorScheme.light({
     this.primary = const Color(0xff333333),
-    this.backgroundGradientStart = const Color(0xffBDC1D1),
-    this.appBarGradientBegin = const Color(0xffF7F8FA),
-    this.appBarGradientEnd = const Color(0xffF7F8FA),
+    this.gradientEnd = const Color(0xffF7F8FA),
+    this.gradientBegin = const Color(0xffE6E7ED),
     this.timerBackground = const Color(0xffff9900),
+    this.shadowAppBarFirst = const Color(0xffBDC1D1),
+    this.shadowAppBarSecond = const Color(0xffFAFCFC),
   });
 
   @override
   CustomColorScheme copyWith({
     Color? primary,
-    Color? appBarGradientBegin,
-    Color? appBarGradientEnd,
-    Color? backgroundGradientStart,
+    Color? gradientBegin,
+    Color? gradientEnd,
+    Color? shadowAppBarFirst,
+    Color? shadowAppBarSecond,
     Color? timerBackground,
   }) {
     return CustomColorScheme(
       primary: primary ?? this.primary,
-      appBarGradientBegin: appBarGradientBegin ?? this.appBarGradientBegin,
-      appBarGradientEnd: appBarGradientEnd ?? this.appBarGradientEnd,
-      backgroundGradientStart: backgroundGradientStart ?? this.backgroundGradientStart,
+      gradientBegin: gradientBegin ?? this.gradientBegin,
+      gradientEnd: gradientEnd ?? this.gradientEnd,
+      shadowAppBarFirst: shadowAppBarFirst ?? this.shadowAppBarFirst,
+      shadowAppBarSecond: shadowAppBarSecond ?? this.shadowAppBarSecond,
       timerBackground: timerBackground ?? this.timerBackground,
     );
   }
@@ -59,9 +65,10 @@ class CustomColorScheme extends ThemeExtension<CustomColorScheme> {
     }
     return CustomColorScheme(
       primary: Color.lerp(primary, other.primary, t),
-      appBarGradientBegin: Color.lerp(appBarGradientBegin, other.appBarGradientBegin, t),
-      backgroundGradientStart: Color.lerp(backgroundGradientStart, other.backgroundGradientStart, t),
-      appBarGradientEnd: Color.lerp(appBarGradientEnd, other.appBarGradientEnd, t),
+      gradientBegin: Color.lerp(gradientBegin, other.gradientBegin, t),
+      shadowAppBarFirst: Color.lerp(shadowAppBarFirst, other.shadowAppBarFirst, t),
+      shadowAppBarSecond: Color.lerp(shadowAppBarSecond, other.shadowAppBarSecond, t),
+      gradientEnd: Color.lerp(gradientEnd, other.gradientEnd, t),
       timerBackground: Color.lerp(timerBackground, other.timerBackground, t),
     );
   }
