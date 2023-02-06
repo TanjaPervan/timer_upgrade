@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
@@ -55,8 +54,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
           borderRadius: const BorderRadius.only(bottomRight: Radius.circular(20)),
           gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
             transform: const GradientRotation(278.75 * pi / 180),
             colors: [
               CustomColors.of(context).gradientBegin,

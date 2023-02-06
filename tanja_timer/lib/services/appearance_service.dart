@@ -23,7 +23,6 @@ class AppearanceService extends ChangeNotifier {
               statusBarBrightness: Brightness.light,
               statusBarIconBrightness: Brightness.light,
             ),
-            //backgroundColor: Colors.transparent,
           ),
           brightness: Brightness.light,
           extensions: <ThemeExtension<dynamic>>[colorScheme, textStyleScheme],
