@@ -20,9 +20,9 @@ class OkButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: CustomColors.of(context).secondary,
             borderRadius: BorderRadius.circular(40),
-            boxShadow: const [
-              BoxShadow(color: Color(0xffBDC1D1), blurRadius: 19.0, offset: Offset(4.0, 3.0)),
-              BoxShadow(color: Color(0xffFAFBFC), blurRadius: 16.0, offset: Offset(-7.0, -7.0)),
+            boxShadow: [
+              BoxShadow(color: CustomColors.of(context).shadowWhite, blurRadius: 19.0, offset: const Offset(4.0, 3.0)),
+              BoxShadow(color: CustomColors.of(context).shadowWhite, blurRadius: 16.0, offset: const Offset(-7.0, -7.0)),
             ],
           ),
           child: Center(

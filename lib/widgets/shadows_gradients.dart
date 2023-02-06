@@ -70,9 +70,18 @@ class ShadowsGradients extends StatelessWidget {
           colors: [const Color(0xff40485D).withOpacity(0.4), const Color(0xff606A82).withOpacity(0.4)],
           stops: const [0.0632, 0.9225],
         ),
-        boxShadow: const [
-          BoxShadow(color: Color(0xffE9EAF2), blurRadius: 16, blurStyle: BlurStyle.inner, offset: Offset(1.0, 1.0)),
-          BoxShadow(color: Color(0xffF5F6FA), blurStyle: BlurStyle.inner, blurRadius: 16, offset: Offset(-1.0, -1.0)),
+        boxShadow: [
+          BoxShadow(
+            color: CustomColors.of(context).shadowWhiteThee,
+            blurRadius: 16,
+            blurStyle: BlurStyle.inner,
+            offset: const Offset(1.0, 1.0),
+          ),
+          BoxShadow(
+              color: CustomColors.of(context).shadowWhiteSec,
+              blurStyle: BlurStyle.inner,
+              blurRadius: 16,
+              offset: const Offset(-1.0, -1.0)),
         ],
       ),
       child: DecoratedBox(
@@ -83,9 +92,19 @@ class ShadowsGradients extends StatelessWidget {
             colors: [CustomColors.of(context).gradientEnd, CustomColors.of(context).gradientBegin],
             stops: const [-0.7965, 1.5125],
           ),
-          boxShadow: const [
-            BoxShadow(color: Color(0xffBDC1D1), blurRadius: 19.0, blurStyle: BlurStyle.normal, offset: Offset(4.0, 3.0)),
-            BoxShadow(color: Color(0xffFAFBFC), blurStyle: BlurStyle.normal, blurRadius: 16.0, offset: Offset(-7.0, -7.0)),
+          boxShadow: [
+            BoxShadow(
+              color: CustomColors.of(context).shadowAppBarFirst,
+              blurRadius: 19.0,
+              blurStyle: BlurStyle.normal,
+              offset: const Offset(4.0, 3.0),
+            ),
+            BoxShadow(
+              color: CustomColors.of(context).shadowWhite,
+              blurStyle: BlurStyle.normal,
+              blurRadius: 16.0,
+              offset: Offset(-7.0, -7.0),
+            ),
           ],
         ),
         child: child,

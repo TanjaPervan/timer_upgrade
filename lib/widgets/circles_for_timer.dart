@@ -18,10 +18,19 @@ class CirclesForTimer extends StatelessWidget {
     required this.textButton,
   });
 
-  List<BoxShadow> get shadows => const [
+  List<BoxShadow> shadows(BuildContext context) => [
         BoxShadow(color: Color(0xffEBECF0), blurRadius: 7.0, blurStyle: BlurStyle.inner, offset: Offset(1.0, 1.0)),
-        BoxShadow(color: Color(0xffBDC1D1), blurRadius: 10.0, blurStyle: BlurStyle.inner, offset: Offset(-3, -3)),
-        BoxShadow(color: Color(0xffFAFBFC), blurRadius: 8.0, blurStyle: BlurStyle.normal, offset: Offset(5, 4)),
+        BoxShadow(
+            color: CustomColors.of(context).shadowAppBarFirst,
+            blurRadius: 10.0,
+            blurStyle: BlurStyle.inner,
+            offset: Offset(-3, -3)),
+        BoxShadow(
+          color: CustomColors.of(context).shadowWhite,
+          blurRadius: 8.0,
+          blurStyle: BlurStyle.normal,
+          offset: const Offset(5, 4),
+        ),
       ];
 
   @override
@@ -57,7 +66,7 @@ class CirclesForTimer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffEBECF0),
                 borderRadius: BorderRadius.circular(175),
-                boxShadow: shadows,
+                boxShadow: shadows(context),
               ),
             ),
           ),
@@ -81,7 +90,7 @@ class CirclesForTimer extends StatelessWidget {
                     CustomColors.of(context).gradientEnd.withOpacity(0.6),
                   ],
                 ),
-                boxShadow: shadows,
+                boxShadow: shadows(context),
               ),
             ),
           ),
