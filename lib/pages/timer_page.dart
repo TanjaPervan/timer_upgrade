@@ -52,12 +52,15 @@ class TimerPage extends StatelessWidget {
                               provider.isActive
                                   ? [
                                       provider.resetTimer(),
-                                      context.pushNamed(CompletedPage.pageName),
+                                      Future.delayed(
+                                        const Duration(seconds: 2),
+                                        () => context.pushNamed(CompletedPage.pageName),
+                                      ),
                                     ]
                                   : [
                                       provider.durationZero(),
                                       Future.delayed(
-                                        const Duration(seconds: 1),
+                                        const Duration(seconds: 2),
                                         () => context.pushNamed(CompletedPage.pageName),
                                       ),
                                     ];
