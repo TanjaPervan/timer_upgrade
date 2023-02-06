@@ -16,6 +16,12 @@ class TimerProvider extends ChangeNotifier {
     myDuration = Duration(minutes: int.parse(_minutes));
   }
 
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
   void startTimer() {
     _isActive = true;
     timer = Timer.periodic(const Duration(seconds: 1), (_) => setTimer());
@@ -26,6 +32,7 @@ class TimerProvider extends ChangeNotifier {
   void stopTimer() {
     timer!.cancel();
     _isActive = false;
+
     notifyListeners();
   }
 
