@@ -38,22 +38,19 @@ class TimerPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        provider.isActive
+                        provider.isActive && format(provider.myDuration!) != '00:00:00'
                             ? CustomButton.pause(onPressed: () => provider.stopTimer())
                             : CustomButton.play(onPressed: () => provider.startTimer()),
-                        CustomButton.powerOff(onPressed: () {
-                          if (provider.isActive) {
-                            provider.resetTimer();
-                            context.pushNamed(CompletedPage.pageName);
-                          } else {
-                            print('object');
-                            provider.durationZero();
-                            Future.delayed(
-                              const Duration(seconds: 1),
-                              () => context.pushNamed(CompletedPage.pageName),
-                            );
-                          }
-                        }),
+                        CustomButton.powerOff(
+                          onPressed: () {
+                            (provider.isActive)
+                                ? [provider.resetTimer(), context.pushNamed(CompletedPage.pageName)]
+                                : [
+                                    provider.durationZero(),
+                                    Future.delayed(const Duration(seconds: 1), () => context.pushNamed(CompletedPage.pageName)),
+                                  ];
+                          },
+                        ),
                       ],
                     ),
                   ),
