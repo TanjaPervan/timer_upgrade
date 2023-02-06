@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class TimerPage extends StatelessWidget {
                   children: [
                     CirclesForTimer(
                       minutes: format(provider.myDuration!),
-                      textButton: provider.isActive ? 'REMAINING TIME' : 'PAUSE',
+                      textButton: provider.isActive ? 'timer_remaining'.tr() : 'timer_pause'.tr(),
                       progress: provider.progress,
                       semanticsValue: minutes,
                     ),

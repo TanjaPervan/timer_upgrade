@@ -27,8 +27,9 @@ class OkButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              'Ok'.toUpperCase().tr(),
-              style: CustomTextStyles.of(context).semiBold20.copyWith(color: Colors.white).apply(
+              'button_ok'.tr().toUpperCase(),
+              style: CustomTextStyles.of(context).semiBold20.copyWith(
+                color: Colors.white,
                 shadows: [
                   BoxShadow(
                     color: const Color(0xff4C546A).withOpacity(0.2),

@@ -24,7 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget title(BuildContext context) {
     switch (_type) {
       case _AppBarStyle.center:
-        return Text('timer'.tr(), style: CustomTextStyles.of(context).bold24);
+        return Text('app_bar_timer'.tr(), style: CustomTextStyles.of(context).bold24);
 
       case _AppBarStyle.leading:
         return LeadingTitle(onTapBack: onTapBack);
