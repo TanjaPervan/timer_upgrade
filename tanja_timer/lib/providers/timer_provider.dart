@@ -54,7 +54,7 @@ class TimerProvider extends ChangeNotifier {
       if (_progress == 1) {
         countdownTimer!.cancel();
       } else {
-        _progress -= 360 / int.parse(_minutes);
+        _progress += int.parse(_minutes) / 100;
       }
     }
     notifyListeners();
