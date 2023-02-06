@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: (screenHeight - 46) / 2,
+                      height: screenHeight / 2 - 91,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -49,9 +49,10 @@ class HomePage extends StatelessWidget {
                         controller: homeProvider.controller,
                         textInputAction: TextInputAction.next,
                         decoration: const InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 10),
+                          contentPadding: EdgeInsets.only(top: 36),
                           border: OutlineInputBorder(borderSide: BorderSide.none),
                         ),
+                        textAlign: TextAlign.center,
                         cursorColor: CustomColors.of(context).primary,
                         keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
@@ -70,7 +71,7 @@ class HomePage extends StatelessWidget {
                               homeProvider.clear();
                             },
                           ),
-                          Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 2)),
+                          Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
                         ],
                       ),
                     ),
