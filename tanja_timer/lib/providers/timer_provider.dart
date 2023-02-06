@@ -6,11 +6,9 @@ class TimerProvider extends ChangeNotifier {
   final String _minutes;
   Duration? myDuration;
   Timer? countdownTimer;
-  double _progress = 0;
   bool _isActive = false;
 
   bool get isActive => _isActive;
-  double get progress => _progress;
 
   TimerProvider(this._minutes) {
     myDuration = Duration(minutes: int.parse(_minutes));
@@ -51,19 +49,6 @@ class TimerProvider extends ChangeNotifier {
       countdownTimer!.cancel();
     } else {
       myDuration = Duration(seconds: seconds);
-      if (_progress == 1) {
-        countdownTimer!.cancel();
-      } else {
-        _progress -= 360 / int.parse(_minutes);
-      }
-    }
-    notifyListeners();
-  }
-
-  void initState() {
-    _progress += 10;
-    if (_progress >= 100) {
-      countdownTimer!.cancel();
     }
     notifyListeners();
   }

@@ -32,7 +32,7 @@ class TimerPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CirclesForTimer(minutes: format(provider.myDuration!), progress: provider.progress),
+                    CirclesForTimer(minutes: format(provider.myDuration!), progress: 0),
                     const SizedBox(height: 98),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 48.0),

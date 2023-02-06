@@ -19,6 +19,8 @@ dependencies:
   easy_localization: ^3.0.1
   easy_logger: ^0.0.2
   tuple: ^2.0.1
+  percent_indicator: ^4.2.2
+
 
 
 
