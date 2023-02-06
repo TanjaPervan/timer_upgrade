@@ -13,8 +13,6 @@ class CompletedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: BackgroundGradient(
         child: Column(

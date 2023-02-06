@@ -4,7 +4,6 @@ import 'package:tanja_timer/pages/completed_page.dart';
 import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
 import 'package:tanja_timer/widgets/background_gradient.dart';
 import 'package:tanja_timer/widgets/custom_button.dart';
-import 'package:tanja_timer/widgets/ok_button.dart';
 import 'package:tanja_timer/widgets/timer_circle.dart';
 
 class TimerPage extends StatelessWidget {

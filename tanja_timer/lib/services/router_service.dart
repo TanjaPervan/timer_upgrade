@@ -23,7 +23,7 @@ class RouterService {
           ),
           routes: [
             GoRoute(
-              path: '${TimerPage.pageName}',
+              path: TimerPage.pageName,
               name: TimerPage.pageName,
               pageBuilder: (context, state) => _buildMaterialPage(
                 child: const TimerPage(),
