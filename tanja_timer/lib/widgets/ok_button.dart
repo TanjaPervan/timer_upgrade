@@ -5,7 +5,7 @@ import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
 
 class OkButton extends StatelessWidget {
-  final Function(String) onTap;
+  final VoidCallback onTap;
 
   const OkButton({
     super.key,
@@ -15,7 +15,7 @@ class OkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: () => onTap(''),
+      onPressed: () => onTap(),
       child: SizedBox(
         height: 64,
         width: 228,

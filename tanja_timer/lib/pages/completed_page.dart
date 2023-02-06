@@ -39,7 +39,7 @@ class CompletedPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   OkButton(
-                    onTap: (text) => context.pushNamed(HomePage.pageName),
+                    onTap: () => context.pushNamed(HomePage.pageName),
                   ),
                   Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
                 ],

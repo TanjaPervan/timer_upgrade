@@ -63,8 +63,8 @@ class HomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           OkButton(
-                            onTap: (text) {
-                              text = homeProvider.getText();
+                            onTap: () {
+                              String text = homeProvider.getText();
                               if (text != '') context.pushNamed(TimerPage.pageName, params: {'text': text});
                               homeProvider.clear();
                             },
