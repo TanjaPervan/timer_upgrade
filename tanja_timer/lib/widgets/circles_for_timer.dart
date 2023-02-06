@@ -7,7 +7,8 @@ import 'package:tanja_timer/widgets/shadows_gradients.dart';
 
 class CirclesForTimer extends StatelessWidget {
   final String minutes;
-  const CirclesForTimer({super.key, required this.minutes});
+  final double? progress;
+  const CirclesForTimer({super.key, required this.minutes, this.progress});
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +18,20 @@ class CirclesForTimer extends StatelessWidget {
       child: Stack(
         children: [
           const Positioned(child: ShadowsGradients.bigRound(child: Center(child: Text('data')))),
-          const Positioned(
+          Positioned(
             bottom: 16,
             top: 16,
             left: 16,
             right: 16,
             child: Padding(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               child: CircularProgressIndicator(
                 color: Colors.transparent,
-                semanticsValue: '60',
+                //semanticsValue: '60',
                 strokeWidth: 10,
-                valueColor: AlwaysStoppedAnimation(
-                  2 == 3 ? Colors.transparent : Colors.orange,
-                ),
+                valueColor: const AlwaysStoppedAnimation(Colors.orange),
                 backgroundColor: Colors.transparent,
-                value: 1 / 2,
+                value: progress,
               ),
             ),
           ),

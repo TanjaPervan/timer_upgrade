@@ -6,9 +6,11 @@ class TimerProvider extends ChangeNotifier {
   final String _minutes;
   Duration? myDuration;
   Timer? countdownTimer;
-
+  double _progress = 0;
   bool _isActive = false;
+
   bool get isActive => _isActive;
+  double get progress => _progress;
 
   TimerProvider(this._minutes) {
     myDuration = Duration(minutes: int.parse(_minutes));
@@ -29,14 +31,12 @@ class TimerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Step 4
   void stopTimer() {
     countdownTimer!.cancel();
     _isActive = false;
     notifyListeners();
   }
 
-  // Step 5
   void resetTimer() {
     countdownTimer!.cancel();
     myDuration = const Duration(seconds: 0);
@@ -45,50 +45,26 @@ class TimerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Step 6
   void setCountDown() {
     final seconds = myDuration!.inSeconds - 1;
     if (seconds < 0) {
       countdownTimer!.cancel();
     } else {
       myDuration = Duration(seconds: seconds);
+      if (_progress == 1) {
+        countdownTimer!.cancel();
+      } else {
+        _progress -= 360 / int.parse(_minutes);
+      }
     }
     notifyListeners();
   }
 
-  // Timer? _timer;
-
-  // Timer get timer => _timer!;
-
-  // void clearMinutes(int minutes) {
-  //   minutes = 0;
-  //   notifyListeners();
-  // }
-
-  // void play(int minute) {
-  //   Timer.periodic(const Duration(seconds: 2), (timer) {
-  //     print(timer.tick);
-  //     minute--;
-  //     if (minute == 0 || timer.isActive == false) {
-  //       print('Cancel timer');
-  //       timer.cancel();
-  //       notifyListeners();
-  //     }
-  //   });
-  // }
+  void initState() {
+    _progress += 10;
+    if (_progress >= 100) {
+      countdownTimer!.cancel();
+    }
+    notifyListeners();
+  }
 }
-
-//  myTimerFunction(){
-// _timer = Timer.periodic(const Duration(seconds: 10 ), (_)=>startTimer(),);
-
-// }
-
-// startTimer(){
-// //userInput--; 
-
-// // if(userInput == put here your value that should stop timer when it arrive it){
-// // myTimer!.cancel(); // 
-// // }
-
-// }
-// }

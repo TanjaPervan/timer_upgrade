@@ -22,44 +22,47 @@ class TimerPage extends StatelessWidget {
 
     return ChangeNotifierProvider<TimerProvider>(
       create: (context) => TimerProvider(minutes),
-      child: Consumer<TimerProvider>(builder: (context, provider, child) {
-        return Scaffold(
-          appBar: CustomAppBar.leading(onTapBack: () => context.pop()),
-          body: BackgroundGradient(
-            child: SizedBox(
-              height: screenHeight,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CirclesForTimer(minutes: format(provider.myDuration!)),
-                  const SizedBox(height: 98),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 48.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        provider.isActive && format(provider.myDuration!) != '00:00:00'
-                            ? CustomButton.pause(onPressed: () => provider.stopTimer())
-                            : CustomButton.play(onPressed: () => provider.startTimer()),
-                        CustomButton.powerOff(
-                          onPressed: () {
-                            (provider.isActive)
-                                ? [provider.resetTimer(), context.pushNamed(CompletedPage.pageName)]
-                                : [
-                                    provider.durationZero(),
-                                    Future.delayed(const Duration(seconds: 1), () => context.pushNamed(CompletedPage.pageName)),
-                                  ];
-                          },
-                        ),
-                      ],
+      child: Consumer<TimerProvider>(
+        builder: (context, provider, child) {
+          return Scaffold(
+            appBar: CustomAppBar.leading(onTapBack: () => context.pop()),
+            body: BackgroundGradient(
+              child: SizedBox(
+                height: screenHeight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CirclesForTimer(minutes: format(provider.myDuration!), progress: provider.progress),
+                    const SizedBox(height: 98),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 48.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          provider.isActive && format(provider.myDuration!) != '00:00:00'
+                              ? CustomButton.pause(onPressed: () => provider.stopTimer())
+                              : CustomButton.play(onPressed: () => provider.startTimer()),
+                          CustomButton.powerOff(
+                            onPressed: () {
+                              (provider.isActive)
+                                  ? [provider.resetTimer(), context.pushNamed(CompletedPage.pageName)]
+                                  : [
+                                      provider.durationZero(),
+                                      Future.delayed(
+                                          const Duration(seconds: 1), () => context.pushNamed(CompletedPage.pageName)),
+                                    ];
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }
