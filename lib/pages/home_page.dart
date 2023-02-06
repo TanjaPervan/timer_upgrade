@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            'Enter amount of time needed to\n complete a mission in minutes',
+                            'home_text'.tr(),
                             style: CustomTextStyles.of(context).regular16.apply(),
                           ),
                         ],

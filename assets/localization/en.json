@@ -1,3 +1,11 @@
-{"timer":"Timer",
-"title":"Title",
-"ok":"Ok"}
+{
+"home_text":"Enter amount of time needed to\n complete a mission in minutes",
+"app_bar_timer":"Timer",
+"app_bar_title":"Title",
+"button_ok":"Ok",
+"completed_mission":"Mission Completed",
+"completed_text":"  Great job. You finished your\n mission in 25min. You earned",
+"completed_coins":"50 coins",
+"timer_remaining":"REMAINING TIME",
+"timer_pause":"PAUSE"
+}

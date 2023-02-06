@@ -16,7 +16,7 @@ class LeadingTitle extends StatelessWidget {
           child: Image.asset('assets/icons/icon_arrow_back.png'),
         ),
         const SizedBox(width: 2),
-        Text('title'.tr(), style: CustomTextStyles.of(context).bold24),
+        Text('app_bar_title'.tr(), style: CustomTextStyles.of(context).bold24),
       ],
     );
   }
