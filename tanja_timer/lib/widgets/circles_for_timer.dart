@@ -5,8 +5,9 @@ import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
 import 'package:tanja_timer/widgets/shadows_gradients.dart';
 
-class TimerCircle extends StatelessWidget {
-  const TimerCircle({super.key});
+class CirclesForTimer extends StatelessWidget {
+  final String minutes;
+  const CirclesForTimer({super.key, required this.minutes});
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +97,7 @@ class TimerCircle extends StatelessWidget {
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('01:59:59', style: CustomTextStyles.of(context).bold48),
+              Text(minutes, style: CustomTextStyles.of(context).bold48),
               Text(
                 'REMAINING TIME',
                 style: CustomTextStyles.of(context).regular14,
