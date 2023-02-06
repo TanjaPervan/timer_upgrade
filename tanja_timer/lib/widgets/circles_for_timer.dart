@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
@@ -9,7 +8,21 @@ class CirclesForTimer extends StatelessWidget {
   final String minutes;
   final String? semanticsValue;
   final double? progress;
-  const CirclesForTimer({super.key, required this.minutes, this.progress, this.semanticsValue});
+  final String textButton;
+
+  const CirclesForTimer({
+    super.key,
+    required this.minutes,
+    this.progress,
+    this.semanticsValue,
+    required this.textButton,
+  });
+
+  List<BoxShadow> get shadows => const [
+        BoxShadow(color: Color(0xffEBECF0), blurRadius: 7.0, blurStyle: BlurStyle.inner, offset: Offset(1.0, 1.0)),
+        BoxShadow(color: Color(0xffBDC1D1), blurRadius: 10.0, blurStyle: BlurStyle.inner, offset: Offset(-3, -3)),
+        BoxShadow(color: Color(0xffFAFBFC), blurRadius: 8.0, blurStyle: BlurStyle.normal, offset: Offset(5, 4)),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +31,7 @@ class CirclesForTimer extends StatelessWidget {
       height: MediaQuery.of(context).size.width - 16,
       child: Stack(
         children: [
-          const Positioned(child: ShadowsGradients.bigRound(child: Center(child: Text('data')))),
+          const Positioned(child: ShadowsGradients.bigRound()),
           Positioned(
             bottom: 16,
             top: 16,
@@ -27,7 +40,6 @@ class CirclesForTimer extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(0),
               child: CircularProgressIndicator(
-                color: Colors.red,
                 semanticsValue: semanticsValue,
                 strokeWidth: 10,
                 valueColor: AlwaysStoppedAnimation(Colors.orange.shade200),
@@ -45,7 +57,7 @@ class CirclesForTimer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffEBECF0),
                 borderRadius: BorderRadius.circular(175),
-                boxShadow: shadows(),
+                boxShadow: shadows,
               ),
             ),
           ),
@@ -58,7 +70,6 @@ class CirclesForTimer extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(175),
                 border: Border.all(
-                  //strokeAlign: StrokeAlign.inside,
                   color: CustomColors.of(context).gradientEnd.withOpacity(1),
                   width: 0,
                 ),
@@ -70,7 +81,7 @@ class CirclesForTimer extends StatelessWidget {
                     CustomColors.of(context).gradientEnd.withOpacity(0.6),
                   ],
                 ),
-                boxShadow: shadows(),
+                boxShadow: shadows,
               ),
             ),
           ),
@@ -85,8 +96,8 @@ class CirclesForTimer extends StatelessWidget {
                 gradient: LinearGradient(
                   transform: const GradientRotation(pi),
                   colors: [
-                    Colors.orange.withOpacity(1),
-                    Colors.orange.withOpacity(0),
+                    CustomColors.of(context).secondary.withOpacity(1),
+                    CustomColors.of(context).secondary.withOpacity(0),
                   ],
                   stops: const [0, 1],
                 ),
@@ -94,41 +105,16 @@ class CirclesForTimer extends StatelessWidget {
             ),
           ),
           Align(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(minutes, style: CustomTextStyles.of(context).bold48),
-              Text(
-                'REMAINING TIME',
-                style: CustomTextStyles.of(context).regular14,
-              )
-            ],
-          ))
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(minutes, style: CustomTextStyles.of(context).bold48),
+                Text(textButton, style: CustomTextStyles.of(context).regular14),
+              ],
+            ),
+          ),
         ],
       ),
     );
-  }
-
-  List<BoxShadow> shadows() {
-    return const [
-      BoxShadow(
-        color: Color(0xffEBECF0),
-        blurRadius: 7.0,
-        blurStyle: BlurStyle.inner,
-        offset: Offset(1.0, 1.0),
-      ),
-      BoxShadow(
-        color: Color(0xffBDC1D1),
-        blurRadius: 10.0,
-        blurStyle: BlurStyle.inner,
-        offset: Offset(-3, -3),
-      ),
-      BoxShadow(
-        color: Color(0xffFAFBFC),
-        blurRadius: 8.0,
-        blurStyle: BlurStyle.normal,
-        offset: Offset(5, 4),
-      ),
-    ];
   }
 }

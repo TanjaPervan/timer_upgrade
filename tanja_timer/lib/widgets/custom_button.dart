@@ -7,11 +7,20 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final _ButtonType _type;
 
-  const CustomButton.play({super.key, required this.onPressed}) : _type = _ButtonType.play;
+  const CustomButton.play({
+    super.key,
+    required this.onPressed,
+  }) : _type = _ButtonType.play;
 
-  const CustomButton.pause({super.key, required this.onPressed}) : _type = _ButtonType.pause;
+  const CustomButton.pause({
+    super.key,
+    required this.onPressed,
+  }) : _type = _ButtonType.pause;
 
-  const CustomButton.powerOff({super.key, required this.onPressed}) : _type = _ButtonType.powerOff;
+  const CustomButton.powerOff({
+    super.key,
+    required this.onPressed,
+  }) : _type = _ButtonType.powerOff;
 
   String get iconPath {
     switch (_type) {

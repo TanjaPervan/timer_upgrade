@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class TimerProvider extends ChangeNotifier {
   final String _minutes;
   Duration? myDuration;
-  Timer? countdownTimer;
+  Timer? timer;
   double _progress = 0;
   bool _isActive = false;
 
@@ -16,43 +16,34 @@ class TimerProvider extends ChangeNotifier {
     myDuration = Duration(minutes: int.parse(_minutes));
   }
 
-  void durationZero() {
-    myDuration = const Duration(minutes: 0);
-    notifyListeners();
-  }
-
   void startTimer() {
     _isActive = true;
+    timer = Timer.periodic(const Duration(seconds: 1), (_) => setTimer());
 
-    countdownTimer = Timer.periodic(
-      const Duration(seconds: 1),
-      (_) => setCountDown(),
-    );
     notifyListeners();
   }
 
   void stopTimer() {
-    countdownTimer!.cancel();
+    timer!.cancel();
     _isActive = false;
     notifyListeners();
   }
 
   void resetTimer() {
-    countdownTimer!.cancel();
+    timer!.cancel();
     myDuration = const Duration(seconds: 0);
     _isActive = false;
-
     notifyListeners();
   }
 
-  void setCountDown() {
+  void setTimer() {
     final seconds = myDuration!.inSeconds - 1;
     if (seconds < 0) {
-      countdownTimer!.cancel();
+      timer!.cancel();
     } else {
       myDuration = Duration(seconds: seconds);
       if (_progress == 1) {
-        countdownTimer!.cancel();
+        timer!.cancel();
       } else {
         _progress += int.parse(_minutes) / 100;
       }
@@ -60,11 +51,8 @@ class TimerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void initState() {
-    _progress += 10;
-    if (_progress >= 100) {
-      countdownTimer!.cancel();
-    }
+  void durationZero() {
+    myDuration = const Duration(minutes: 0);
     notifyListeners();
   }
 }

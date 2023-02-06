@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: screenHeight / 2 - 46 - 46,
+                      height: (screenHeight - 46) / 2,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: screenHeight / 2 - (86 + 77 - 46),
+                      height: screenHeight / 2 - 117,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [

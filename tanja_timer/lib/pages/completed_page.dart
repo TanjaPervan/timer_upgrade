@@ -38,9 +38,7 @@ class CompletedPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  OkButton(
-                    onTap: () => context.pushNamed(HomePage.pageName),
-                  ),
+                  OkButton(onTap: () => context.pushNamed(HomePage.pageName)),
                   Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
                 ],
               ),

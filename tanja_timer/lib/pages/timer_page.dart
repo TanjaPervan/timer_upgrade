@@ -34,6 +34,7 @@ class TimerPage extends StatelessWidget {
                   children: [
                     CirclesForTimer(
                       minutes: format(provider.myDuration!),
+                      textButton: provider.isActive ? 'REMAINING TIME' : 'PAUSE',
                       progress: provider.progress,
                       semanticsValue: minutes,
                     ),
@@ -48,12 +49,17 @@ class TimerPage extends StatelessWidget {
                               : CustomButton.play(onPressed: () => provider.startTimer()),
                           CustomButton.powerOff(
                             onPressed: () {
-                              (provider.isActive)
-                                  ? [provider.resetTimer(), context.pushNamed(CompletedPage.pageName)]
+                              provider.isActive
+                                  ? [
+                                      provider.resetTimer(),
+                                      context.pushNamed(CompletedPage.pageName),
+                                    ]
                                   : [
                                       provider.durationZero(),
                                       Future.delayed(
-                                          const Duration(seconds: 1), () => context.pushNamed(CompletedPage.pageName)),
+                                        const Duration(seconds: 1),
+                                        () => context.pushNamed(CompletedPage.pageName),
+                                      ),
                                     ];
                             },
                           ),

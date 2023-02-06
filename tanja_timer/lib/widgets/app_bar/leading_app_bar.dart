@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'package:tanja_timer/extensions/custom_text_style.dart';
 
 class LeadingTitle extends StatelessWidget {
