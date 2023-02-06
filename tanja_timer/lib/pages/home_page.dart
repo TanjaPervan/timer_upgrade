@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: screenHeight / 2 - 46,
+                      height: screenHeight / 2 - 46 - 46,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -58,20 +58,15 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: screenHeight / 2 - (86 + 77),
+                      height: screenHeight / 2 - (86 + 77 - 46),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           OkButton(
                             onTap: () {
-                              int minutes = homeProvider.getMinute();
-                              if (minutes.toString() != '')
-                                context.pushNamed(
-                                  TimerPage.pageName,
-                                  params: {
-                                    'minutes': minutes.toString(),
-                                  },
-                                );
+                              String minutes = homeProvider.getMinute();
+                              if (minutes.isNotEmpty) context.pushNamed(TimerPage.pageName, params: {'minutes': minutes});
+
                               homeProvider.clear();
                             },
                           ),

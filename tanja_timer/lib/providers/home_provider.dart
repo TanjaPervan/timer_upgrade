@@ -5,8 +5,8 @@ class HomeProvider extends ChangeNotifier {
 
   TextEditingController get controller => _controller;
 
-  int getMinute() {
-    return int.parse(_controller.text);
+  String getMinute() {
+    return _controller.text;
   }
 
   void clear() {
