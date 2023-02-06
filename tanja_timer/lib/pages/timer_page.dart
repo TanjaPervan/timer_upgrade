@@ -4,14 +4,14 @@ import 'package:tanja_timer/pages/completed_page.dart';
 import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
 import 'package:tanja_timer/widgets/background_gradient.dart';
 import 'package:tanja_timer/widgets/custom_button.dart';
-import 'package:tanja_timer/widgets/timer_circle.dart';
+import 'package:tanja_timer/widgets/circles_for_timer.dart';
 
 class TimerPage extends StatelessWidget {
   static const pageName = 'text';
 
-  final String text;
+  final int minutes;
 
-  const TimerPage({super.key, required this.text});
+  const TimerPage({super.key, required this.minutes});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class TimerPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TimerCircle(text: text),
+              CirclesForTimer(minutes: minutes.toString()),
               const SizedBox(height: 98),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 48.0),

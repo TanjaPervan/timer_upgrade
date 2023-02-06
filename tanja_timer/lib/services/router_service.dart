@@ -23,10 +23,12 @@ class RouterService {
           ),
         ),
         GoRoute(
-          path: '/${TimerPage.pageName}/:text',
+          path: '/${TimerPage.pageName}/:minutes',
           name: TimerPage.pageName,
           pageBuilder: (context, state) => _buildMaterialPage(
-            child: TimerPage(text: state.params['text']!),
+            child: TimerPage(
+              minutes: int.parse(state.params['minutes']!),
+            ),
           ),
         ),
         GoRoute(

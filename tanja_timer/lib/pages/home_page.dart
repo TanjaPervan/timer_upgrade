@@ -64,8 +64,14 @@ class HomePage extends StatelessWidget {
                         children: [
                           OkButton(
                             onTap: () {
-                              String text = homeProvider.getText();
-                              if (text != '') context.pushNamed(TimerPage.pageName, params: {'text': text});
+                              int minutes = homeProvider.getMinute();
+                              if (minutes.toString() != '')
+                                context.pushNamed(
+                                  TimerPage.pageName,
+                                  params: {
+                                    'minutes': minutes.toString(),
+                                  },
+                                );
                               homeProvider.clear();
                             },
                           ),
