@@ -7,9 +7,11 @@ import 'package:tanja_timer/widgets/custom_button.dart';
 import 'package:tanja_timer/widgets/timer_circle.dart';
 
 class TimerPage extends StatelessWidget {
-  static const pageName = 'timer';
+  static const pageName = 'text';
 
-  const TimerPage({super.key});
+  final String text;
+
+  const TimerPage({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class TimerPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const TimerCircle(),
+              TimerCircle(text: text),
               const SizedBox(height: 98),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 48.0),

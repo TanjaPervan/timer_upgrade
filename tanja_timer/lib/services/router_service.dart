@@ -21,15 +21,13 @@ class RouterService {
           pageBuilder: (context, state) => _buildMaterialPage(
             child: const HomePage(),
           ),
-          routes: [
-            GoRoute(
-              path: TimerPage.pageName,
-              name: TimerPage.pageName,
-              pageBuilder: (context, state) => _buildMaterialPage(
-                child: const TimerPage(),
-              ),
-            ),
-          ],
+        ),
+        GoRoute(
+          path: '/${TimerPage.pageName}/:text',
+          name: TimerPage.pageName,
+          pageBuilder: (context, state) => _buildMaterialPage(
+            child: TimerPage(text: state.params['text']!),
+          ),
         ),
         GoRoute(
           path: '/${CompletedPage.pageName}',
