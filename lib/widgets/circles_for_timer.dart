@@ -6,7 +6,6 @@ import 'package:tanja_timer/widgets/shadows_gradients.dart';
 
 class CirclesForTimer extends StatelessWidget {
   final String minutes;
-  final String? semanticsValue;
   final double? progress;
   final String textButton;
 
@@ -14,7 +13,6 @@ class CirclesForTimer extends StatelessWidget {
     super.key,
     required this.minutes,
     this.progress,
-    this.semanticsValue,
     required this.textButton,
   });
 
@@ -40,7 +38,6 @@ class CirclesForTimer extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(0),
               child: CircularProgressIndicator(
-                semanticsValue: semanticsValue,
                 strokeWidth: 10,
                 valueColor: AlwaysStoppedAnimation(Colors.orange.shade200),
                 backgroundColor: Colors.transparent,

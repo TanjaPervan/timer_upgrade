@@ -37,7 +37,6 @@ class TimerPage extends StatelessWidget {
                       minutes: format(provider.myDuration!),
                       textButton: provider.isActive ? 'timer_remaining'.tr() : 'timer_pause'.tr(),
                       progress: provider.progress,
-                      semanticsValue: minutes,
                     ),
                     const SizedBox(height: 98),
                     Padding(
