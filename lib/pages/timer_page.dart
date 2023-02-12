@@ -35,6 +35,7 @@ class TimerPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CirclesForTimer(
+                      color: provider.color,
                       minutes: format(provider.myDuration!),
                       textButton: provider.isActive ? 'timer_remaining'.tr() : 'timer_pause'.tr(),
                       progress: provider.progress,
