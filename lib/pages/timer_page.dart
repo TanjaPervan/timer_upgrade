@@ -28,12 +28,14 @@ class TimerPage extends StatelessWidget {
           return Scaffold(
             appBar: CustomAppBar.leading(onTapBack: () => context.pop()),
             body: BackgroundGradient(
+              screenHeight: screenHeight,
               child: SizedBox(
                 height: screenHeight,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CirclesForTimer(
+                      color: provider.color,
                       minutes: format(provider.myDuration!),
                       textButton: provider.isActive ? 'timer_remaining'.tr() : 'timer_pause'.tr(),
                       progress: provider.progress,

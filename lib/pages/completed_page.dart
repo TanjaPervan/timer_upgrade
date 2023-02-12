@@ -14,13 +14,15 @@ class CompletedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: BackgroundGradient(
+        screenHeight: screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 48),
             Text('completed_mission'.tr(), style: CustomTextStyles.of(context).bold32),
             const SizedBox(height: 42),
             SizedBox(
@@ -33,13 +35,17 @@ class CompletedPage extends StatelessWidget {
               'completed_coins'.tr(),
               style: CustomTextStyles.of(context).bold32.apply(color: CustomColors.of(context).secondary),
             ),
-            Image.asset('assets/images/coins.png'),
+            Image.asset(
+              'assets/images/coins.png',
+              height: screenHeight / 2,
+              fit: BoxFit.cover,
+            ),
             SizedBox(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   OkButton(onTap: () => context.pushNamed(HomePage.pageName)),
-                  Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
+                  // Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
                 ],
               ),
             ),

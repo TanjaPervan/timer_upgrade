@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tanja_timer/widgets/shadows_gradients.dart';
+import 'package:tanja_timer/widgets/fields_shadows_gradients.dart';
 
 enum _ButtonType { play, pause, powerOff }
 
@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShadowsGradients.buttonRound(
+    return FieldsShadowsGradients.buttonRound(
       child: CupertinoButton(
         onPressed: onPressed,
         child: Image.asset(iconPath),
