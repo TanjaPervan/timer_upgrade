@@ -23,7 +23,6 @@ class CompletedPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 48),
             Text('completed_mission'.tr(), style: CustomTextStyles.of(context).bold32),
             const SizedBox(height: 42),
             SizedBox(
@@ -38,7 +37,7 @@ class CompletedPage extends StatelessWidget {
             ),
             Image.asset(
               'assets/images/coins.png',
-              height: screenHeight / 2 - 40,
+              height: screenHeight / 2,
               fit: BoxFit.cover,
             ),
             SizedBox(
