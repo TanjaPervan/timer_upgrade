@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
               resizeToAvoidBottomInset: false,
               appBar: const CustomAppBar.center(),
               body: BackgroundGradient(
+                screenHeight: screenHeight,
                 child: Column(
                   children: [
                     SizedBox(

@@ -6,7 +6,7 @@ class TimerProvider extends ChangeNotifier {
   final String _minutes;
   Duration? myDuration;
   Timer? timer;
-  double _progress = 0;
+  double _progress = 1;
   bool _isActive = false;
 
   bool get isActive => _isActive;
@@ -50,10 +50,10 @@ class TimerProvider extends ChangeNotifier {
     } else {
       double x = double.parse(_minutes) * 60;
       myDuration = Duration(seconds: seconds);
-      if (_progress == 1) {
+      if (_progress == 0) {
         timer!.cancel();
       } else {
-        _progress += 1 / x;
+        _progress -= 1 / x;
       }
     }
     notifyListeners();

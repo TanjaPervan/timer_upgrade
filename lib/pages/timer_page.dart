@@ -28,6 +28,7 @@ class TimerPage extends StatelessWidget {
           return Scaffold(
             appBar: CustomAppBar.leading(onTapBack: () => context.pop()),
             body: BackgroundGradient(
+              screenHeight: screenHeight,
               child: SizedBox(
                 height: screenHeight,
                 child: Column(

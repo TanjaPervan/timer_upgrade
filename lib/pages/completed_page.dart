@@ -14,41 +14,43 @@ class CompletedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: BackgroundGradient(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 72),
-              Text('completed_mission'.tr(), style: CustomTextStyles.of(context).bold32),
-              const SizedBox(height: 42),
-              SizedBox(
-                width: 239,
-                height: 46,
-                child: Text('completed_text'.tr(), style: CustomTextStyles.of(context).regular16),
+        screenHeight: screenHeight,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 48),
+            Text('completed_mission'.tr(), style: CustomTextStyles.of(context).bold32),
+            const SizedBox(height: 42),
+            SizedBox(
+              width: 239,
+              height: 46,
+              child: Text('completed_text'.tr(), style: CustomTextStyles.of(context).regular16),
+            ),
+            const SizedBox(height: 18),
+            Text(
+              'completed_coins'.tr(),
+              style: CustomTextStyles.of(context).bold32.apply(color: CustomColors.of(context).secondary),
+            ),
+            Image.asset(
+              'assets/images/coins.png',
+              height: screenHeight / 2 - 40,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  OkButton(onTap: () => context.pushNamed(HomePage.pageName)),
+                  // Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
+                ],
               ),
-              const SizedBox(height: 18),
-              Text(
-                'completed_coins'.tr(),
-                style: CustomTextStyles.of(context).bold32.apply(color: CustomColors.of(context).secondary),
-              ),
-              Image.asset(
-                'assets/images/coins.png',
-                //fit: BoxFit.cover,
-              ),
-              SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    OkButton(onTap: () => context.pushNamed(HomePage.pageName)),
-                    Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

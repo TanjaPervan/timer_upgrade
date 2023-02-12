@@ -5,7 +5,8 @@ import 'package:tanja_timer/extensions/custom_color.dart';
 
 class BackgroundGradient extends StatelessWidget {
   final Widget child;
-  const BackgroundGradient({super.key, required this.child});
+  final double screenHeight;
+  const BackgroundGradient({super.key, required this.child, required this.screenHeight});
 
   @override
   Widget build(BuildContext context) {
