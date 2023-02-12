@@ -48,11 +48,15 @@ class TimerProvider extends ChangeNotifier {
     if (seconds < 0) {
       timer!.cancel();
     } else {
+      double x = double.parse(_minutes) * 60;
       myDuration = Duration(seconds: seconds);
       if (_progress == 1) {
         timer!.cancel();
       } else {
-        _progress += int.parse(_minutes) / 100;
+        print(x);
+        print(_progress);
+        print(seconds);
+        _progress += 1 / x;
       }
     }
     notifyListeners();
