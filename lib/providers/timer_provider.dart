@@ -53,9 +53,6 @@ class TimerProvider extends ChangeNotifier {
       if (_progress == 1) {
         timer!.cancel();
       } else {
-        print(x);
-        print(_progress);
-        print(seconds);
         _progress += 1 / x;
       }
     }

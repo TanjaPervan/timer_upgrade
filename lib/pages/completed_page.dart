@@ -16,34 +16,39 @@ class CompletedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BackgroundGradient(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 48),
-            Text('completed_mission'.tr(), style: CustomTextStyles.of(context).bold32),
-            const SizedBox(height: 42),
-            SizedBox(
-              width: 239,
-              height: 46,
-              child: Text('completed_text'.tr(), style: CustomTextStyles.of(context).regular16),
-            ),
-            const SizedBox(height: 18),
-            Text(
-              'completed_coins'.tr(),
-              style: CustomTextStyles.of(context).bold32.apply(color: CustomColors.of(context).secondary),
-            ),
-            Image.asset('assets/images/coins.png'),
-            SizedBox(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  OkButton(onTap: () => context.pushNamed(HomePage.pageName)),
-                  Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 72),
+              Text('completed_mission'.tr(), style: CustomTextStyles.of(context).bold32),
+              const SizedBox(height: 42),
+              SizedBox(
+                width: 239,
+                height: 46,
+                child: Text('completed_text'.tr(), style: CustomTextStyles.of(context).regular16),
               ),
-            ),
-          ],
+              const SizedBox(height: 18),
+              Text(
+                'completed_coins'.tr(),
+                style: CustomTextStyles.of(context).bold32.apply(color: CustomColors.of(context).secondary),
+              ),
+              Image.asset(
+                'assets/images/coins.png',
+                //fit: BoxFit.cover,
+              ),
+              SizedBox(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    OkButton(onTap: () => context.pushNamed(HomePage.pageName)),
+                    Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
