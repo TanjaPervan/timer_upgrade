@@ -10,7 +10,7 @@ import 'package:tanja_timer/providers/home_provider.dart';
 import 'package:tanja_timer/widgets/app_bar/custom_app_bar.dart';
 import 'package:tanja_timer/widgets/background_gradient.dart';
 import 'package:tanja_timer/widgets/ok_button.dart';
-import 'package:tanja_timer/widgets/shadows_gradients.dart';
+import 'package:tanja_timer/widgets/fields_shadows_gradients.dart';
 
 class HomePage extends StatelessWidget {
   static const pageName = 'home';
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 34),
-                    ShadowsGradients.inputField(
+                    FieldsShadowsGradients.inputField(
                       child: TextField(
                         controller: homeProvider.controller,
                         textInputAction: TextInputAction.next,

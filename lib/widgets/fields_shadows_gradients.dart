@@ -6,20 +6,20 @@ import 'package:tanja_timer/extensions/custom_color.dart';
 
 enum _Type { inputField, buttonRound, bigRound }
 
-class ShadowsGradients extends StatelessWidget {
+class FieldsShadowsGradients extends StatelessWidget {
   final _Type _type;
   final Widget? child;
 
-  const ShadowsGradients.inputField({
+  const FieldsShadowsGradients.inputField({
     super.key,
     required this.child,
   }) : _type = _Type.inputField;
 
-  const ShadowsGradients.bigRound({super.key})
+  const FieldsShadowsGradients.bigRound({super.key})
       : _type = _Type.bigRound,
         child = null;
 
-  const ShadowsGradients.buttonRound({
+  const FieldsShadowsGradients.buttonRound({
     super.key,
     required this.child,
   }) : _type = _Type.buttonRound;

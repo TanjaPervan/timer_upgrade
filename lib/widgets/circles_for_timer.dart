@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tanja_timer/extensions/custom_color.dart';
 import 'package:tanja_timer/extensions/custom_text_style.dart';
-import 'package:tanja_timer/widgets/shadows_gradients.dart';
+import 'package:tanja_timer/widgets/fields_shadows_gradients.dart';
 
 class CirclesForTimer extends StatelessWidget {
   final String minutes;
@@ -31,7 +31,7 @@ class CirclesForTimer extends StatelessWidget {
       height: MediaQuery.of(context).size.width - 16,
       child: Stack(
         children: [
-          const Positioned(child: ShadowsGradients.bigRound()),
+          const Positioned(child: FieldsShadowsGradients.bigRound()),
           Positioned(
             bottom: 16,
             top: 16,
