@@ -55,7 +55,7 @@ class CirclesForTimer extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: const Color(0xffEBECF0),
-                borderRadius: BorderRadius.circular(175),
+                borderRadius: BorderRadius.circular(500),
                 boxShadow: shadows,
               ),
             ),
@@ -67,7 +67,7 @@ class CirclesForTimer extends StatelessWidget {
             right: 33,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(175),
+                borderRadius: BorderRadius.circular(500),
                 border: Border.all(
                   color: CustomColors.of(context).gradientEnd.withOpacity(1),
                   width: 0,
@@ -91,7 +91,7 @@ class CirclesForTimer extends StatelessWidget {
             right: 44,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(175),
+                borderRadius: BorderRadius.circular(500),
                 gradient: LinearGradient(
                   transform: const GradientRotation(pi),
                   colors: [
