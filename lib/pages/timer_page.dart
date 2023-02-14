@@ -63,7 +63,7 @@ class TimerPage extends StatelessWidget {
                                       provider.durationZero(),
                                       Future.delayed(
                                         const Duration(seconds: 2),
-                                        () => context.pushNamed(CompletedPage.pageName),
+                                        () => context.pushNamed(CompletedPage.pageName, params: {'completed': minutes}),
                                       ),
                                     ];
                             },
