@@ -30,10 +30,10 @@ class RouterService {
           ),
         ),
         GoRoute(
-          path: '/${CompletedPage.pageName}',
+          path: '/${CompletedPage.pageName}/:completed',
           name: CompletedPage.pageName,
           pageBuilder: (context, state) => _buildMaterialPage(
-            child: const CompletedPage(),
+            child: CompletedPage(minutes: state.params['completed']!),
           ),
         ),
       ],
